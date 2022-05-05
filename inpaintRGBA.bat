@@ -1,8 +1,9 @@
-@echo off
-set BIN="%~dp0\inpaint.exe"
-if "%1"=="" (
+@echo on
+if "%~1"=="" (
 echo "Please specify the image file. "
-) else (
-%BIN% --src "%~dpnx1" --mask "%~dpnx1" --dst "%~dpn1_inpainted%~x1"
+exit /b
 )
+set BIN="%~dp0\inpaint.exe"
+
+%BIN% --src "%~dpnx1" --mask "%~dpnx1" --dst "%~dpnx1"
 pause
