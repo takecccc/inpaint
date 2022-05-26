@@ -5,5 +5,7 @@ exit /b
 )
 set BIN="%~dp0\inpaint.exe"
 
-%BIN% --src "%~dpnx1" --mask "%~dpnx1" --dst "%~dpnx1"
+for %%F in (%*) do (
+%BIN% --src "%%~dpnxF" --mask "%%~dpnxF" --dst "%%~dpnxF"
+)
 pause
